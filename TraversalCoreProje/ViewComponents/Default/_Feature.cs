@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace TraversalCoreProje.ViewComponents.Default
 {
@@ -9,8 +10,8 @@ namespace TraversalCoreProje.ViewComponents.Default
         FeatureManager fm = new FeatureManager(new EfFeatureDal());
         public IViewComponentResult Invoke()
         {
-            //ViewBag.image1 = fm.ge 
-            return View();
+            var values = fm.TGetList();
+            return View(values);
         }
     }
 }
