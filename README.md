@@ -34,7 +34,7 @@ Sitemizin üye paneli ve admin paneli bulunmaktadır.
 <h5>Bu katmanda projeye ait olan tüm html,css,javascript dosyaları bulunmaktadır. Ayrıca diğer katmanlarla iletişim halinde olan ve görünümlere veri aktaran Controller'lar da bu katmanda bulunmaktadır. Aynı zamanda üye ve admin panellerimiz için ayırıcı görev gören Area'larda bu katmandadır.</h5>
 
 <h4>ENTITY KATMANI</h4>
-<h5>Veritabanına yansıyan tüm tablo ve sütunları içeren yapılar yani Class'larımız bu katmanda bulunur.</h5>
+<h5>Veritabanına yansıyan tüm tablo ve sütunları içeren yapılar bu katmanda bulunur.</h5>
 
 <h4> DATA ACCESS KATMANI</h4>
 <h5>Veritabanı bağlantısı (Context) , migration işlemleri ve diğer veritabanı CRUD fonksiyonlarının yapıldığı Generic sınıfların ve interfacelerin bulunduğu katmandır.</h5>
