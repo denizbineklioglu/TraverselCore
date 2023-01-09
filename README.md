@@ -1,7 +1,7 @@
 # TraverselCore
 Entity Framework Core - N Tier Architecture
 
-Seyahat ve Rezervasyon Sitesi
+Seyahat ve Rezervasyon Sitesi <br>
 Sitemizin üye paneli ve admin paneli bulunmaktadır.
 
 <h2>Kullanılan Tablolar</h2>
