@@ -37,7 +37,7 @@ Sitemizin üye paneli ve admin paneli bulunmaktadır.
 <h5>Veritabanına yansıyan tüm tablo ve sütunları içeren yapılar bu katmanda bulunur.</h5>
 
 <h4> DATA ACCESS KATMANI</h4>
-<h5>Veritabanı bağlantısı (Context) , migration işlemleri ve diğer veritabanı CRUD fonksiyonlarının yapıldığı Generic sınıfların ve interfacelerin bulunduğu katmandır.</h5>
+<h5>Veritabanı bağlantısı (Context) , migration işlemleri ve diğer veritabanı CRUD(Create,Read,Update,Delete) fonksiyonlarının yapıldığı katmandır.</h5>
 
 <h4> BUSINESS KATMANI</h4>
 <h5>Entity ve Data access katmanını kullanarak proje içerisindeki validasyon(kurallar) işlemlerinin yapıldığı katmandır. User Interface, Business katmanı ile direkt olarak haberleşir.</h5>
