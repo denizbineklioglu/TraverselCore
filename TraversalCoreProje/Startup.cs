@@ -2,6 +2,7 @@ using BusinessLayer.Container;
 using DataAccessLayer.Concrete;
 using EntityLayer.Concrete;
 using FluentValidation.AspNetCore;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -11,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System.IO;
+using TraversalCoreProje.CQRS.Handlers;
 using TraversalCoreProje.CQRS.Handlers.DestinationHandlers;
 using TraversalCoreProje.Models;
 
@@ -30,6 +32,12 @@ namespace TraversalCoreProje
         {
 
             services.AddScoped<GetAllDestinationQueryHandlers>();
+            services.AddScoped<GetDestinationByIDQueryHandler>();
+            services.AddScoped<CreateDestinationCommandHandler>();
+            services.AddScoped<RemoveDestinationCommandHandler>();
+            services.AddScoped<UpdateDestinationCommandHandler>();
+
+            services.AddMediatR(typeof(Startup));
 
             services.AddLogging(x =>
             {

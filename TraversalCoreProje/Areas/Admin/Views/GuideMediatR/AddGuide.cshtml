@@ -1,0 +1,16 @@
+﻿@model CreateGuideCommand
+@{
+    ViewData["Title"] = "AddGuide";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yeni Rehber Ekleme Sayfası</h2>
+
+<form method="post">
+    <label>Ad</label>
+    <input type="text" asp-for="Name" class="form-control" /><br />
+    <label>Açıklama</label>
+    <input type="text" asp-for="Description" class="form-control" /><br />
+    <button class="btn btn-outline-primary">Ekle</button>
+</form>
+
