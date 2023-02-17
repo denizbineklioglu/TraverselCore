@@ -22,20 +22,20 @@
     <div class="py-5 w3l-homeblock1 text-center">
         <div class="container mt-md-3">
             <h3 class="blog-desc-big text-center mb-4">
-                Alanında en yetkin rehberlerimizle 
+                Alanında en yetkin rehberlerimizle
                 en güncel seyahat hikayelerimizi okumalısınız!
             </h3>
             <div class="blog-post-align">
                 <div class="blog-post-img">
-                    <a href="#"><img src="~/Traversal-Orjinal/assets/images/c1.jpg" alt="" class="rounded-circle img-fluid" /></a>
+                    <a href="#"><img src="@Model.Guide.Image" alt="" class="rounded-circle img-fluid" /></a>
                 </div>
                 <div class="blog-post-info">
                     <div class="author align-items-center mb-1">
-                        <a href="#">@Model.Guide.Name</a> in <a href="#url">Traversal</a>
+                        <a href="#">@Model.Guide.Name</a> - <a href="#url">@Model.Guide.Description</a>
                     </div>
                     <ul class="blog-meta">
                         <li class="meta-item blog-lesson">
-                            <span class="meta-value"> June 13, 2020 </span>
+                            <span class="meta-value"> @(((DateTime)Model.DestinationDate).ToString("dd-MMM-yyyy")) </span>
                         </li>
                     </ul>
                 </div>
@@ -91,13 +91,44 @@
                             <a href="#blog-share"><span class="fa fa-pinterest-p" aria-hidden="true"></span></a>
                         </div>
                     </div>
-                    @await Component.InvokeAsync("_GuideDetails")
+                    <div class="author-card mt-5">
+                        <div class="row align-items-center">
+                            <div class="col-sm-3 col-6">
+                                <div>
+                                    <img src="@Model.Guide.Image" alt="" class="rounded-circle img-fluid">
+                                </div>
+                            </div>
+                            <div class="col-sm-9 mt-sm-0 mt-3">
+                                <h3 class="mb-3 title">@Model.Guide.Name</h3>
+                                <p>
+                                    @Model.Guide.Description2
+                                </p>
+                                <ul class="author-icons mt-4">
+                                    <li>
+                                        <a class="twitter" href="@Model.Guide.TwitterUrl">
+                                            <span class="fa fa-twitter"
+                                                  aria-hidden="true"></span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dribbble" href="@Model.Guide.InstagramUrl">
+                                            <span class="fa fa-instagram"
+                                                  aria-hidden="true"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+
+
                     @await Component.InvokeAsync("_CommentList",new {id=ViewBag.i})
 
                     @await Html.PartialAsync("~/Views/Comment/AddComment.cshtml")
                 </div>
             </div>
-            </div>
+        </div>
     </section>
 </body>
 </html>
