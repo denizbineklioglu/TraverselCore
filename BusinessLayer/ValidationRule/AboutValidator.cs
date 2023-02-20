@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.ValidationRule
 {
-    public class AboutValidator:AbstractValidator<About>
+    public class AbstractValidator:AbstractValidator<About>
     {
-        public AboutValidator()
+        public AbstractValidator()
         {
             RuleFor(x=>x.Description).NotEmpty().WithMessage("Açıklamayı boş geçemezsiniz.");
             RuleFor(x=>x.Image1).NotEmpty().WithMessage("Lütfen görsel seçiniz.");
