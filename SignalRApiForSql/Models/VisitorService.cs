@@ -1,16 +1,15 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
-using SignalRApi.DAL;
-using SignalRApi.Hubs;
+using SignalRApiForSql.DAL;
+using SignalRApiForSql.Hubs;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SignalRApi.Model
+namespace SignalRApiForSql.Models
 {
     public class VisitorService
     {
-
         private readonly Context _context;
         private readonly IHubContext<VisitorHub> _visitorHub;
         public VisitorService(Context context, IHubContext<VisitorHub> visitorHub)
@@ -30,7 +29,7 @@ namespace SignalRApi.Model
             await _context.SaveChangesAsync();
 
             //Çağırılacak olan method.
-            await _visitorHub.Clients.All.SendAsync("CallVisitList","aaa");
+            await _visitorHub.Clients.All.SendAsync("CallVisitList", GetVisitorChartList());
         }
 
         public List<VisitorChart> GetVisitorChartList()
@@ -38,12 +37,12 @@ namespace SignalRApi.Model
             List<VisitorChart> visitorCharts = new();
             using (var command = _context.Database.GetDbConnection().CreateCommand())
             {
-                command.CommandText = "Select * from crosstab ('Select VisitDate,City,CityVisitCountn From Visitors Order By 1,2') As  ct (VisitDate date,City1 int,City2 int,City3 int,City4 int, City5 int);";
+                command.CommandText = "select tarih,[1],[2],[3],[4],[5] from (select [City],CityVisitCount,Cast([VisitDate] as date) as tarih from Visitors) as visitTable Pivot (Sum(CityVisitCount) For City in([1],[2],[3],[4],[5])) as pivottable order by tarih asc";
                 command.CommandType = System.Data.CommandType.Text;
                 _context.Database.OpenConnection();
                 using (var reader = command.ExecuteReader())
                 {
-                    while (reader.Read()) 
+                    while (reader.Read())
                     {
                         VisitorChart visitorChart = new();
                         visitorChart.VisitDate = reader.GetDateTime(0).ToShortDateString();
@@ -56,7 +55,7 @@ namespace SignalRApi.Model
                 }
                 _context.Database.CloseConnection();
                 return visitorCharts;
-            }            
+            }
         }
     }
 }
