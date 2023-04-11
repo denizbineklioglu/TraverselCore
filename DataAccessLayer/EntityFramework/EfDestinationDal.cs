@@ -3,6 +3,7 @@ using DataAccessLayer.Concrete;
 using DataAccessLayer.Repository;
 using EntityLayer.Concrete;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,19 @@ namespace DataAccessLayer.EntityFramework
         {
             using (var context = new Context())
             {
-                return context.Destinations.Where(x=>x.DestinationID == id).Include(x => x.Guide).FirstOrDefault();
+                return context.Destinations.Where(x => x.DestinationID == id).Include(x => x.Guide).FirstOrDefault();
+            }
+        }
+
+        public List<Destination> GetLast4Destinations()
+        {
+            using (var context = new Context())
+            {
+                var values = context.Destinations
+                                    .Take(4)
+                                    .OrderByDescending(x => x.DestinationID)
+                                    .ToList();
+                return values;
             }
         }
     }
