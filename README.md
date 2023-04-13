@@ -17,16 +17,13 @@ Sitemizin üye paneli ve admin paneli bulunmaktadır.
 
 <h2>Uye Paneli</h2>
 
-![uy-panel](https://user-images.githubusercontent.com/76698070/211225976-0641dfc0-dc80-4539-9464-db082b59eca8.png)
-
+![Screenshot_1](https://user-images.githubusercontent.com/76698070/231805755-49fb9c0c-3d84-44dc-b6c7-f9cbce493760.png)
 <h2>Kayıt Olma Ekranı<h/2>
 
 
 ![reg](https://user-images.githubusercontent.com/76698070/211226040-08c18d1a-8fe8-42a1-a39e-1e8a63230959.png)
 
-
 <h2>Projemizde N Katmanlı Mimari Kullanılmaktadır.</h2>
-<h5>Şu anda 4 Katman bulunuyor. Geliştirme esnasında Core katmanı da eklenecektir.</h5>
 
 ![katman](https://user-images.githubusercontent.com/76698070/211226141-606231f4-a574-49ff-885f-d07cbf128486.png)
 
